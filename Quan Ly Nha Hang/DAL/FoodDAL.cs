@@ -22,7 +22,7 @@ namespace Quan_Ly_Nha_Hang.DAL
         public List<Food> GetFoodCategoryByID(int id)
         {
             List<Food> list = new List<Food>();
-            string query = "Select * from dbo.Food where IdCategory=" + id;
+            string query = "Select * from dbo.Food where IdCategory = " + id;
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
             foreach (DataRow item in data.Rows)
             {

@@ -37,6 +37,7 @@ namespace Quan_Ly_Nha_Hang.GUI
 
         void loadTable()
         {
+            flpTable.Controls.Clear();
             List<Table> tableList = TableDAL.Instance.LoadTableList();
             foreach (Table item in tableList)
             {
@@ -73,6 +74,7 @@ namespace Quan_Ly_Nha_Hang.GUI
                 lstBill.Items.Add(lsvItem);
             }
             txbTotalPrice.Text = totalPrice.ToString() + " VND";
+            
         }
         
 
@@ -130,6 +132,25 @@ namespace Quan_Ly_Nha_Hang.GUI
             {
                 BillInfoDAL.Instance.InsertBillInfo(idBill, foodId, count);
             }
+            ShowBill(table.ID);
+            loadTable();
+        }
+        private void btnCheck_Click(object sender, EventArgs e)
+        {
+            Table table = lstBill.Tag as Table;
+            int Bill = BillDAL.Instance.GetUnCheckOutBillByTableId(table.ID);
+
+            if (Bill != -1)//Bill chua co
+            {
+                if (MessageBox.Show("Bạn có muốn thanh toán hóa đơn cho " + table.Name + " ?", "Thông báo", MessageBoxButtons.OKCancel)
+                    == System.Windows.Forms.DialogResult.OK) ;
+                {
+                    BillDAL.Instance.CheckOut(Bill);
+                    ShowBill(table.ID);
+                    loadTable();
+                }
+            }
+            
         }
 
 

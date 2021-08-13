@@ -33,7 +33,7 @@ namespace Quan_Ly_Nha_Hang.DAL
         }
         public void InsertBill(int id)
         {
-            DataProvider.Instance.ExecuteNonQuery("exec USP_InsertBill @IdTable = ", new object[]{id});
+            DataProvider.Instance.ExecuteNonQuery("exec USP_InsertBill @IdTable  ", new object[]{id});
         }
         public int GetMaxID()
         {
@@ -45,6 +45,11 @@ namespace Quan_Ly_Nha_Hang.DAL
             {
                 return 1;
             }
+        }
+        public void CheckOut(int id)
+        {
+            string query = "UPDATE dbo.Bill SET status = 1 Where Id = " + id;
+            DataProvider.Instance.ExecuteNonQuery(query);
         }
     }
 }
