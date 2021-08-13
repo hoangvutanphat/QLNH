@@ -44,8 +44,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAL\AccountDAL.cs" />
+    <Compile Include="DAL\BillDAL.cs" />
+    <Compile Include="DAL\BillInfoDAL.cs" />
+    <Compile Include="DAL\CategoryDAL.cs" />
+    <Compile Include="DAL\FoodDAL.cs" />
+    <Compile Include="DAL\MenuDAL.cs" />
     <Compile Include="DAL\TableDAL.cs" />
+    <Compile Include="DTO\Bill.cs" />
+    <Compile Include="DTO\BillInfo.cs" />
+    <Compile Include="DTO\Category.cs" />
     <Compile Include="DTO\DataProvider.cs" />
+    <Compile Include="DTO\Food.cs" />
+    <Compile Include="DTO\Menu.cs" />
     <Compile Include="DTO\Table.cs" />
     <Compile Include="GUI\FAdmin.cs">
       <SubType>Form</SubType>

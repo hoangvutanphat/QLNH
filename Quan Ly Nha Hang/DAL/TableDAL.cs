@@ -36,5 +36,6 @@ namespace Quan_Ly_Nha_Hang.DAL
 
             return tableList;
         }
+
     }
 }
