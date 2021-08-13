@@ -44,9 +44,7 @@ namespace Quan_Ly_Nha_Hang.GUI
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel3 = new System.Windows.Forms.Panel();
             this.cbbTable = new System.Windows.Forms.ComboBox();
-            this.SaleCount = new System.Windows.Forms.NumericUpDown();
             this.button2 = new System.Windows.Forms.Button();
-            this.btnSale = new System.Windows.Forms.Button();
             this.btnCheck = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.Foodcount = new System.Windows.Forms.NumericUpDown();
@@ -57,7 +55,6 @@ namespace Quan_Ly_Nha_Hang.GUI
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.SaleCount)).BeginInit();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Foodcount)).BeginInit();
             this.SuspendLayout();
@@ -106,8 +103,6 @@ namespace Quan_Ly_Nha_Hang.GUI
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.txbTotalPrice);
             this.panel2.Controls.Add(this.lstBill);
             this.panel2.Location = new System.Drawing.Point(451, 101);
             this.panel2.Name = "panel2";
@@ -118,7 +113,7 @@ namespace Quan_Ly_Nha_Hang.GUI
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(15, 291);
+            this.label1.Location = new System.Drawing.Point(117, 13);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(83, 19);
             this.label1.TabIndex = 7;
@@ -127,10 +122,10 @@ namespace Quan_Ly_Nha_Hang.GUI
             // txbTotalPrice
             // 
             this.txbTotalPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbTotalPrice.Location = new System.Drawing.Point(221, 291);
+            this.txbTotalPrice.Location = new System.Drawing.Point(121, 41);
             this.txbTotalPrice.Name = "txbTotalPrice";
             this.txbTotalPrice.ReadOnly = true;
-            this.txbTotalPrice.Size = new System.Drawing.Size(196, 27);
+            this.txbTotalPrice.Size = new System.Drawing.Size(211, 27);
             this.txbTotalPrice.TabIndex = 6;
             this.txbTotalPrice.Text = "0";
             this.txbTotalPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -172,10 +167,10 @@ namespace Quan_Ly_Nha_Hang.GUI
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.txbTotalPrice);
+            this.panel3.Controls.Add(this.label1);
             this.panel3.Controls.Add(this.cbbTable);
-            this.panel3.Controls.Add(this.SaleCount);
             this.panel3.Controls.Add(this.button2);
-            this.panel3.Controls.Add(this.btnSale);
             this.panel3.Controls.Add(this.btnCheck);
             this.panel3.Location = new System.Drawing.Point(451, 437);
             this.panel3.Name = "panel3";
@@ -187,39 +182,17 @@ namespace Quan_Ly_Nha_Hang.GUI
             this.cbbTable.FormattingEnabled = true;
             this.cbbTable.Location = new System.Drawing.Point(4, 44);
             this.cbbTable.Name = "cbbTable";
-            this.cbbTable.Size = new System.Drawing.Size(94, 24);
+            this.cbbTable.Size = new System.Drawing.Size(107, 24);
             this.cbbTable.TabIndex = 5;
-            // 
-            // SaleCount
-            // 
-            this.SaleCount.Location = new System.Drawing.Point(104, 44);
-            this.SaleCount.Name = "SaleCount";
-            this.SaleCount.Size = new System.Drawing.Size(98, 22);
-            this.SaleCount.TabIndex = 4;
-            this.SaleCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.SaleCount.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             // 
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(4, 8);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(94, 30);
+            this.button2.Size = new System.Drawing.Size(107, 30);
             this.button2.TabIndex = 3;
             this.button2.Text = "Chuyển bàn";
             this.button2.UseVisualStyleBackColor = true;
-            // 
-            // btnSale
-            // 
-            this.btnSale.Location = new System.Drawing.Point(104, 8);
-            this.btnSale.Name = "btnSale";
-            this.btnSale.Size = new System.Drawing.Size(98, 30);
-            this.btnSale.TabIndex = 3;
-            this.btnSale.Text = "Giảm giá";
-            this.btnSale.UseVisualStyleBackColor = true;
             // 
             // btnCheck
             // 
@@ -310,9 +283,8 @@ namespace Quan_Ly_Nha_Hang.GUI
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.SaleCount)).EndInit();
+            this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Foodcount)).EndInit();
             this.ResumeLayout(false);
@@ -336,9 +308,7 @@ namespace Quan_Ly_Nha_Hang.GUI
         private System.Windows.Forms.ComboBox cbbFood;
         private System.Windows.Forms.ComboBox cbbCategory;
         private System.Windows.Forms.ComboBox cbbTable;
-        private System.Windows.Forms.NumericUpDown SaleCount;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button btnSale;
         private System.Windows.Forms.Button btnCheck;
         private System.Windows.Forms.FlowLayoutPanel flpTable;
         private System.Windows.Forms.ColumnHeader columnHeader1;
