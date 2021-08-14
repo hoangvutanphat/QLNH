@@ -23,6 +23,10 @@ namespace Quan_Ly_Nha_Hang.DAL
         public static int TableWidth = 80;
         public static int TableHeight = 80;
 
+        public void SwitchTable(int id1, int id2)
+        {
+            DataProvider.Instance.ExecuteQuery("USP_SwitchTable @IdTable1 , @IdTable2", new object[] { id1, id2 });
+        }
         public  List<Table> LoadTableList()
         {
             List<Table> tableList = new List<Table>();

@@ -30,15 +30,15 @@ namespace Quan_Ly_Nha_Hang.GUI
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txbUserName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txbDisplayName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txbPassword = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txbnewpass = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txbrenewpass = new System.Windows.Forms.TextBox();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -52,13 +52,13 @@ namespace Quan_Ly_Nha_Hang.GUI
             this.label1.TabIndex = 0;
             this.label1.Text = "Tên đăng nhập:";
             // 
-            // textBox1
+            // txbUserName
             // 
-            this.textBox1.Location = new System.Drawing.Point(165, 23);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(210, 22);
-            this.textBox1.TabIndex = 1;
+            this.txbUserName.Location = new System.Drawing.Point(165, 23);
+            this.txbUserName.Name = "txbUserName";
+            this.txbUserName.ReadOnly = true;
+            this.txbUserName.Size = new System.Drawing.Size(210, 22);
+            this.txbUserName.TabIndex = 1;
             // 
             // label2
             // 
@@ -69,12 +69,12 @@ namespace Quan_Ly_Nha_Hang.GUI
             this.label2.TabIndex = 0;
             this.label2.Text = "Tên hiển thị:";
             // 
-            // textBox2
+            // txbDisplayName
             // 
-            this.textBox2.Location = new System.Drawing.Point(165, 67);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(210, 22);
-            this.textBox2.TabIndex = 1;
+            this.txbDisplayName.Location = new System.Drawing.Point(165, 67);
+            this.txbDisplayName.Name = "txbDisplayName";
+            this.txbDisplayName.Size = new System.Drawing.Size(210, 22);
+            this.txbDisplayName.TabIndex = 1;
             // 
             // label3
             // 
@@ -85,12 +85,13 @@ namespace Quan_Ly_Nha_Hang.GUI
             this.label3.TabIndex = 0;
             this.label3.Text = "Mật khẩu:";
             // 
-            // textBox3
+            // txbPassword
             // 
-            this.textBox3.Location = new System.Drawing.Point(165, 112);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(210, 22);
-            this.textBox3.TabIndex = 1;
+            this.txbPassword.Location = new System.Drawing.Point(165, 112);
+            this.txbPassword.Name = "txbPassword";
+            this.txbPassword.PasswordChar = '*';
+            this.txbPassword.Size = new System.Drawing.Size(210, 22);
+            this.txbPassword.TabIndex = 1;
             // 
             // label4
             // 
@@ -101,13 +102,13 @@ namespace Quan_Ly_Nha_Hang.GUI
             this.label4.TabIndex = 0;
             this.label4.Text = "Mật khẩu mới:";
             // 
-            // textBox4
+            // txbnewpass
             // 
-            this.textBox4.Location = new System.Drawing.Point(165, 153);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.PasswordChar = '*';
-            this.textBox4.Size = new System.Drawing.Size(210, 22);
-            this.textBox4.TabIndex = 1;
+            this.txbnewpass.Location = new System.Drawing.Point(165, 153);
+            this.txbnewpass.Name = "txbnewpass";
+            this.txbnewpass.PasswordChar = '*';
+            this.txbnewpass.Size = new System.Drawing.Size(210, 22);
+            this.txbnewpass.TabIndex = 1;
             // 
             // label5
             // 
@@ -118,13 +119,13 @@ namespace Quan_Ly_Nha_Hang.GUI
             this.label5.TabIndex = 0;
             this.label5.Text = "Nhập lại mật khẩu:";
             // 
-            // textBox5
+            // txbrenewpass
             // 
-            this.textBox5.Location = new System.Drawing.Point(165, 197);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.PasswordChar = '*';
-            this.textBox5.Size = new System.Drawing.Size(210, 22);
-            this.textBox5.TabIndex = 1;
+            this.txbrenewpass.Location = new System.Drawing.Point(165, 197);
+            this.txbrenewpass.Name = "txbrenewpass";
+            this.txbrenewpass.PasswordChar = '*';
+            this.txbrenewpass.Size = new System.Drawing.Size(210, 22);
+            this.txbrenewpass.TabIndex = 1;
             // 
             // btnUpdate
             // 
@@ -154,11 +155,11 @@ namespace Quan_Ly_Nha_Hang.GUI
             this.ClientSize = new System.Drawing.Size(387, 287);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnUpdate);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txbrenewpass);
+            this.Controls.Add(this.txbnewpass);
+            this.Controls.Add(this.txbPassword);
+            this.Controls.Add(this.txbDisplayName);
+            this.Controls.Add(this.txbUserName);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -174,15 +175,15 @@ namespace Quan_Ly_Nha_Hang.GUI
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txbUserName;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txbDisplayName;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txbPassword;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txbnewpass;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txbrenewpass;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnExit;
     }

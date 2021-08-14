@@ -23,7 +23,7 @@ namespace Quan_Ly_Nha_Hang.DAL
         //Trả về id bill theo id table, lỗi trả về -1
         public int GetUnCheckOutBillByTableId(int id)
         {
-            DataTable data = DataProvider.Instance.ExecuteQuery("Select * from dbo.bill where idTable = " + id + " and status = 0");
+            DataTable data = DataProvider.Instance.ExecuteQuery("Select * from dbo.bill where IdTable = " + id + " and status = 0");
             if (data.Rows.Count > 0)
             {
                 Bill bill = new Bill(data.Rows[0]);
@@ -46,9 +46,14 @@ namespace Quan_Ly_Nha_Hang.DAL
                 return 1;
             }
         }
-        public void CheckOut(int id)
+
+        public DataTable GetListBillByDate(DateTime checkIn, DateTime checkOut)
         {
-            string query = "UPDATE dbo.Bill SET status = 1 Where Id = " + id;
+           return DataProvider.Instance.ExecuteQuery("exec USP_GetListBillByDate @checkIn , @checkOut", new object[] { checkIn, checkOut });
+        }
+        public void CheckOut(int id, int totalPrice)
+        {
+            string query = "UPDATE dbo.Bill SET DateCheckOut = GETDATE(), status = 1, totalPrice = "+ totalPrice +" Where Id = " + id;
             DataProvider.Instance.ExecuteNonQuery(query);
         }
     }

@@ -50,6 +50,7 @@
     <Compile Include="DAL\FoodDAL.cs" />
     <Compile Include="DAL\MenuDAL.cs" />
     <Compile Include="DAL\TableDAL.cs" />
+    <Compile Include="DTO\Account.cs" />
     <Compile Include="DTO\Bill.cs" />
     <Compile Include="DTO\BillInfo.cs" />
     <Compile Include="DTO\Category.cs" />

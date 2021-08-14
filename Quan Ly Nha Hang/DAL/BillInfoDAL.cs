@@ -18,7 +18,11 @@ namespace Quan_Ly_Nha_Hang.DAL
             private set => instance = value; }
 
         private BillInfoDAL() { }
-
+        
+        public void DeleteBillInfoByFoodID(int id)
+        {
+            DataProvider.Instance.ExecuteNonQuery("Delete dbo.BillInfo Where IdFood = " + id);
+        }
         public List<BillInfo> GetListBillInfo(int id)
         {
             List<BillInfo> listBillInfo = new List<BillInfo>();

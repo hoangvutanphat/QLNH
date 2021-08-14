@@ -1,4 +1,5 @@
 ﻿using Quan_Ly_Nha_Hang.DAL;
+using Quan_Ly_Nha_Hang.DTO;
 using Quan_Ly_Nha_Hang.GUI;
 using System;
 using System.Collections.Generic;
@@ -29,7 +30,8 @@ namespace Quan_Ly_Nha_Hang
             string passWord = txbPassword.Text;
             if (Login(userName,passWord))
             {
-                QLNH f2 = new QLNH();
+                Account loginAccount = AccountDAL.Instance.GetAccountByUserName(userName);
+                QLNH f2 = new QLNH(loginAccount);
                 this.Hide();
                 f2.ShowDialog();//on top
                 this.Show();
