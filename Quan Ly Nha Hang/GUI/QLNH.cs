@@ -188,21 +188,27 @@ namespace Quan_Ly_Nha_Hang.GUI
                 MessageBox.Show("Hãy chọn bàn!");
                 return;
             }
+            try
+            {
+
             int foodId = (cbbFood.SelectedItem as Food).ID;
             int count = (int)Foodcount.Value;
-
             int idBill = BillDAL.Instance.GetUnCheckOutBillByTableId(table.ID);
-               if (idBill == -1)
+            if (idBill == -1)
                 {
-                BillDAL.Instance.InsertBill(table.ID);
-                BillInfoDAL.Instance.InsertBillInfo(BillDAL.Instance.GetMaxID(),foodId,count);//Them vao bang Billinfo theo id lon nhat
+                    BillDAL.Instance.InsertBill(table.ID);
+                    BillInfoDAL.Instance.InsertBillInfo(BillDAL.Instance.GetMaxID(), foodId, count);//Them vao bang Billinfo theo id lon nhat
                 }
-               else
-            {
-                BillInfoDAL.Instance.InsertBillInfo(idBill, foodId, count);
+                else
+                {
+                    BillInfoDAL.Instance.InsertBillInfo(idBill, foodId, count);
+                }
+                ShowBill(table.ID);
+                loadTable();
             }
-            ShowBill(table.ID);
-            loadTable();
+            catch {
+            }
+            
         }
         private void btnCheck_Click(object sender, EventArgs e)
         {
@@ -238,8 +244,9 @@ namespace Quan_Ly_Nha_Hang.GUI
         }
 
 
+
         #endregion
 
-
+       
     }
 }

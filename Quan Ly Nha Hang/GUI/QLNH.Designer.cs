@@ -35,6 +35,8 @@ namespace Quan_Ly_Nha_Hang.GUI
             this.thôngTinCáNhânToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.đăngXuấtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.txbBan = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.lstBill = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -54,8 +56,6 @@ namespace Quan_Ly_Nha_Hang.GUI
             this.cbbFood = new System.Windows.Forms.ComboBox();
             this.cbbCategory = new System.Windows.Forms.ComboBox();
             this.flpTable = new System.Windows.Forms.FlowLayoutPanel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txbBan = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -72,7 +72,7 @@ namespace Quan_Ly_Nha_Hang.GUI
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(899, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(899, 30);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -116,6 +116,24 @@ namespace Quan_Ly_Nha_Hang.GUI
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(435, 330);
             this.panel2.TabIndex = 2;
+            // 
+            // txbBan
+            // 
+            this.txbBan.Location = new System.Drawing.Point(51, 302);
+            this.txbBan.Name = "txbBan";
+            this.txbBan.ReadOnly = true;
+            this.txbBan.Size = new System.Drawing.Size(103, 22);
+            this.txbBan.TabIndex = 2;
+            this.txbBan.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(4, 305);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(41, 17);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Bàn :";
             // 
             // lstBill
             // 
@@ -174,6 +192,7 @@ namespace Quan_Ly_Nha_Hang.GUI
             this.txbTotalPrice.TabIndex = 6;
             this.txbTotalPrice.Text = "0";
             this.txbTotalPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            
             // 
             // panel3
             // 
@@ -246,7 +265,7 @@ namespace Quan_Ly_Nha_Hang.GUI
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(17, 12);
+            this.label2.Location = new System.Drawing.Point(18, 5);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(80, 17);
@@ -309,23 +328,6 @@ namespace Quan_Ly_Nha_Hang.GUI
             this.flpTable.Name = "flpTable";
             this.flpTable.Size = new System.Drawing.Size(428, 485);
             this.flpTable.TabIndex = 5;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(4, 305);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(41, 17);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Bàn :";
-            // 
-            // txbBan
-            // 
-            this.txbBan.Location = new System.Drawing.Point(51, 302);
-            this.txbBan.Name = "txbBan";
-            this.txbBan.Size = new System.Drawing.Size(103, 22);
-            this.txbBan.TabIndex = 2;
-            this.txbBan.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // QLNH
             // 

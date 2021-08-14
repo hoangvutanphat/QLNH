@@ -43,6 +43,12 @@ namespace Quan_Ly_Nha_Hang.GUI
         void LoadListBillByDate(DateTime checkIn, DateTime checkOut)
         {
             dtgvListBill.DataSource = BillDAL.Instance.GetListBillByDate(checkIn, checkOut);
+            int totalPrice = 0;
+            //foreach(DataRow item in BillDAL.Instance.GetListBillByDate(checkIn, checkOut).Rows)
+            //{
+            //    totalPrice += Convert.ToInt32(item.
+            //}
+            //Da co gang de dua tong tien len nhung khong duoc
 
         }
         void LoadListFood()
@@ -116,7 +122,8 @@ namespace Quan_Ly_Nha_Hang.GUI
             {
                 MessageBox.Show("Không thể xóa tài khoản đang đăng nhập");
             }
-           
+            else
+            {
                 if (AccountDAL.Instance.DeleteAccount(userName))
                 {
                     MessageBox.Show("Xoá tài khoản thành công");
@@ -126,7 +133,7 @@ namespace Quan_Ly_Nha_Hang.GUI
                     MessageBox.Show("Xóa tài khoản thất bại");
                 }
                 LoadAccount();
-            
+            }
             
         }
         void AddCategory(string userName)
@@ -183,8 +190,10 @@ namespace Quan_Ly_Nha_Hang.GUI
 
             return listFood;
         }
+        
         #endregion
         #region Events
+
         private void button1_Click(object sender, EventArgs e)
         {
             LoadListBillByDate(dateTimePicker1.Value, dateTimePicker2.Value);
@@ -327,7 +336,14 @@ namespace Quan_Ly_Nha_Hang.GUI
             string userName = txbUserName.Text;
             string displayName = txbDisplayName.Text;
             int type = (int)nmAccountType.Value;
-            EditAccount(userName, displayName, type);
+            if (txbUserName.Text==userName & (int)nmAccountType.Value ==1) 
+            {
+                EditAccount(userName, displayName, type);
+            }
+            else
+            {
+                MessageBox.Show("Không thể sửa thông tin tài khoản");
+            }
         }
 
         private void btnResetPassword_Click(object sender, EventArgs e)
@@ -370,6 +386,7 @@ namespace Quan_Ly_Nha_Hang.GUI
         //        page++;
         //    txbpage.Text = page.ToString();
         //}
+        
         private void btnShowCategory_Click(object sender, EventArgs e)
         {
             LoadListCategory();
@@ -380,17 +397,20 @@ namespace Quan_Ly_Nha_Hang.GUI
             int id = Convert.ToInt32(txbIDcate.Text);
             string name = txbnameCate.Text;
             EditCategory(id, name);
+            LoadListCategory(cbbCategory);
         }
         private void btnDeleteCategory_Click(object sender, EventArgs e)
         {
             int id = Convert.ToInt32(txbIDcate.Text);
             DeleteCategory(id);
+            LoadListCategory(cbbCategory);
         }
 
         private void btnAddCategory_Click(object sender, EventArgs e)
         {
             string name = txbnameCate.Text;
             AddCategory(name);
+            LoadListCategory(cbbCategory);
         }
         //private void FAdmin_FormClosing(object sender, FormClosingEventArgs e)
         //{
@@ -404,9 +424,10 @@ namespace Quan_Ly_Nha_Hang.GUI
             qlnh.ShowDialog();           
         }
 
+        
 
         #endregion
 
-
+        
     }
 }

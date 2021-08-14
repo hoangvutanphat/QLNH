@@ -82,12 +82,12 @@ namespace Quan_Ly_Nha_Hang.GUI
             this.panel3 = new System.Windows.Forms.Panel();
             this.dtgvListBill = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.tclAdmin = new System.Windows.Forms.TabControl();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.tpAccount.SuspendLayout();
             this.panel14.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvAccount)).BeginInit();
@@ -667,7 +667,7 @@ namespace Quan_Ly_Nha_Hang.GUI
             this.dtgvListBill.Name = "dtgvListBill";
             this.dtgvListBill.RowHeadersWidth = 51;
             this.dtgvListBill.RowTemplate.Height = 24;
-            this.dtgvListBill.Size = new System.Drawing.Size(796, 379);
+            this.dtgvListBill.Size = new System.Drawing.Size(796, 381);
             this.dtgvListBill.TabIndex = 0;
             // 
             // panel2
@@ -682,6 +682,24 @@ namespace Quan_Ly_Nha_Hang.GUI
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(796, 59);
             this.panel2.TabIndex = 0;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(518, 10);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(73, 17);
+            this.label8.TabIndex = 4;
+            this.label8.Text = "Đến ngày:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(22, 10);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(64, 17);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Từ ngày:";
             // 
             // button1
             // 
@@ -723,24 +741,6 @@ namespace Quan_Ly_Nha_Hang.GUI
             this.tclAdmin.Size = new System.Drawing.Size(816, 491);
             this.tclAdmin.TabIndex = 0;
             this.tclAdmin.Tag = "";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(22, 10);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(64, 17);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Từ ngày:";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(518, 10);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(73, 17);
-            this.label8.TabIndex = 4;
-            this.label8.Text = "Đến ngày:";
             // 
             // FAdmin
             // 
