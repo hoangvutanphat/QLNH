@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace Quan_Ly_Nha_Hang.DAL
@@ -19,6 +20,19 @@ namespace Quan_Ly_Nha_Hang.DAL
         private AccountDAL() { }
         public bool Login(string userName, string passWord)
         {
+            //ma hoa mat khau
+            //byte[] temp = ASCIIEncoding.ASCII.GetBytes(passWord);
+            //byte[] hasData = new MD5CryptoServiceProvider().ComputeHash(temp);
+
+            //string hasPass = "";
+            //foreach(byte item in hasData)
+            //{
+            //    hasPass += item;
+            //}
+            //var list = hasData.ToString();
+            //list.Reverse();
+            //hasData = list.ToArray();
+            //Do dinh nghia kieu du lieu ben password ngan => Chua thuc hien duoc buoc nay
 
             string query = "Select * from dbo.Account where UserName = N'"+userName+"' and Password = N'"+passWord+"'";
             DataTable result = DataProvider.Instance.ExecuteQuery(query);
@@ -66,7 +80,7 @@ namespace Quan_Ly_Nha_Hang.DAL
         }
         public bool ResetPassword(string name)
         {
-            string query = string.Format("Update dbo.Account set Password = N'1' where Username = {0}",name);
+            string query = string.Format("Update dbo.Account set Password = N'1' where Username = N'{0}'",name);
             int result = DataProvider.Instance.ExecuteNonQuery(query);
             return result > 0;
         }

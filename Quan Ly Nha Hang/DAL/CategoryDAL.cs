@@ -45,5 +45,23 @@ namespace Quan_Ly_Nha_Hang.DAL
             }
             return category;
         }
+        public bool InsertCategory(string name)
+        {
+            string query = string.Format("exec USP_insertcategory @name = N'{0}'", name);
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+            return result > 0;
+        }
+        public bool UpdateCategory(int id, string name)
+        {
+            string query = string.Format("Update dbo.FoodCategory Set name = N'{0}' where Id = {1}", name, id);
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+            return result > 0;
+        }
+        public bool DeleteCategory(int id)
+        {          
+            string query = string.Format("Delete dbo.FoodCategory Where id = {0}", id);
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+            return result > 0;
+        }
     }
 }

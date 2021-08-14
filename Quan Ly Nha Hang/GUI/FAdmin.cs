@@ -16,6 +16,7 @@ namespace Quan_Ly_Nha_Hang.GUI
     {
         BindingSource foodList = new BindingSource();//Giu ket noi binding
         BindingSource accountList = new BindingSource();
+        BindingSource categoryList = new BindingSource();
         public Account loginAccount;//K cho xoa tai khoan hien tai
         public FAdmin()
         {
@@ -28,6 +29,7 @@ namespace Quan_Ly_Nha_Hang.GUI
         {
             dgrvFood.DataSource = foodList;
             dtgvAccount.DataSource = accountList;
+            dtgvCategory.DataSource = categoryList;
             LoadDateTimePickerBill();
             LoadListBillByDate(dateTimePicker1.Value, dateTimePicker2.Value);
             LoadListFood();
@@ -35,6 +37,8 @@ namespace Quan_Ly_Nha_Hang.GUI
             AddFoodBinding();
             LoadListCategory(cbbCategory);
             AddAccountBinding();
+            LoadListCategory();
+            AddCategoryBinding();
         }
         void LoadListBillByDate(DateTime checkIn, DateTime checkOut)
         {
@@ -68,10 +72,19 @@ namespace Quan_Ly_Nha_Hang.GUI
         {
             accountList.DataSource = AccountDAL.Instance.GetListAccount();
         }
+        void AddCategoryBinding()
+        {
+            txbIDcate.DataBindings.Add(new Binding("Text", dtgvCategory.DataSource, "ID", true, DataSourceUpdateMode.Never));
+            txbnameCate.DataBindings.Add(new Binding("Text", dtgvCategory.DataSource, "name", true, DataSourceUpdateMode.Never));
+        }
         void LoadListCategory(ComboBox cb)
         {
             cb.DataSource = CategoryDAL.Instance.GetListCategory();
             cb.DisplayMember = "Name";
+        }
+        void LoadListCategory()
+        {
+            categoryList.DataSource = CategoryDAL.Instance.GetListCategory();
         }
         void AddAccount(string userName, string displayName , int type)
         {
@@ -116,7 +129,43 @@ namespace Quan_Ly_Nha_Hang.GUI
             
             
         }
-        void ResetPassword(string userName)
+        void AddCategory(string userName)
+        {
+            if (CategoryDAL.Instance.InsertCategory(userName))
+            {
+                MessageBox.Show("Thêm danh mục thành công");
+            }
+            else
+            {
+                MessageBox.Show("Thêm danh mục thất bại");
+            }
+            LoadListCategory();
+        }
+        void EditCategory(int id, string name)
+        {
+            if (CategoryDAL.Instance.UpdateCategory(id , name))
+            {
+                MessageBox.Show("Sửa danh mục thành công");
+            }
+            else
+            {
+                MessageBox.Show("Chỉnh sửa danh mục thất bại");
+            }
+            LoadListCategory();
+        }
+        void DeleteCategory(int id)
+        {
+            if (CategoryDAL.Instance.DeleteCategory(id))
+            {
+                MessageBox.Show("Xoá danh mục thành công");
+            }
+            else
+            {
+                MessageBox.Show("Xóa danh mục  thất bại");
+            }
+            LoadListCategory();
+        }
+            void ResetPassword(string userName)
         {
             if (AccountDAL.Instance.ResetPassword(userName))
             {
@@ -287,8 +336,77 @@ namespace Quan_Ly_Nha_Hang.GUI
             ResetPassword(username);
         }
 
+        //private void btnFirstView_Click(object sender, EventArgs e)
+        //{
+        //    txbpage.Text = "1";
+        //}
+
+        //private void btnLastView_Click(object sender, EventArgs e)
+        //{
+        //    int sum = BillDAL.Instance.GetNumBillByDate(dateTimePicker1.Value, dateTimePicker2.Value);
+
+        //    int lastPage = sum / 10;
+        //    if(sum % 10 != 0)
+        //    {
+        //        lastPage++;
+        //    }
+        //}
+        //private void txbpage_TextChanged(object sender, EventArgs e)
+        //{
+        //    dtgvListBill.DataSource = BillDAL.Instance.GetListBillByDateAndPage(dateTimePicker1.Value, dateTimePicker2.Value, Convert.ToInt32(txbpage.Text));
+        //}
+        //private void btnPrevious_Click(object sender, EventArgs e)
+        //{
+        //    int page = Convert.ToInt32(txbpage.Text);
+        //    if (page > 1)
+        //        page--;
+        //    txbpage.Text = page.ToString();
+        //}
+        //private void btnNext_Click(object sender, EventArgs e)
+        //{
+        //    int page = Convert.ToInt32(txbpage.Text);
+        //    int sum = BillDAL.Instance.GetNumBillByDate(dateTimePicker1.Value, dateTimePicker2.Value);
+        //    if (page < sum)
+        //        page++;
+        //    txbpage.Text = page.ToString();
+        //}
+        private void btnShowCategory_Click(object sender, EventArgs e)
+        {
+            LoadListCategory();
+        }
+
+        private void btnUpdateCategory_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(txbIDcate.Text);
+            string name = txbnameCate.Text;
+            EditCategory(id, name);
+        }
+        private void btnDeleteCategory_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(txbIDcate.Text);
+            DeleteCategory(id);
+        }
+
+        private void btnAddCategory_Click(object sender, EventArgs e)
+        {
+            string name = txbnameCate.Text;
+            AddCategory(name);
+        }
+        //private void FAdmin_FormClosing(object sender, FormClosingEventArgs e)
+        //{
+        //    QLNH qlnh = new QLNH(loginAccount);
+        //    qlnh.ShowDialog();
+        //}
+        private void FAdmin_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            QLNH qlnh = new QLNH(loginAccount);
+            this.Hide();
+            qlnh.ShowDialog();           
+        }
+
+
         #endregion
 
-        
+
     }
 }

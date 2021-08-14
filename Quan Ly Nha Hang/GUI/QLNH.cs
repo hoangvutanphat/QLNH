@@ -137,7 +137,9 @@ namespace Quan_Ly_Nha_Hang.GUI
             f.InsertFood += F_InsertFood;
             f.DeleteFood += F_DeleteFood;
             f.UpdateFood += F_UpdateFood;
+            this.Hide();
             f.ShowDialog();
+            
         }
 
         private void F_UpdateFood(object sender, EventArgs e)
@@ -152,14 +154,14 @@ namespace Quan_Ly_Nha_Hang.GUI
             LoadFoodListCategoryByID((cbbCategory.SelectedItem as Category).ID);
             if(lstBill.Tag !=null)
                 ShowBill((lstBill.Tag as Table).ID);
-            loadTable();
+                loadTable();
         }
 
         private void F_InsertFood(object sender, EventArgs e)
         {
             if (lstBill.Tag != null)
                 LoadFoodListCategoryByID((cbbCategory.SelectedItem as Category).ID);
-            ShowBill((lstBill.Tag as Table).ID);
+                ShowBill((lstBill.Tag as Table).ID);
         }
 
         private void cbbCategory_SelectedIndexChanged(object sender, EventArgs e)

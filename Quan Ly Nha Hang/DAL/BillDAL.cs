@@ -11,14 +11,17 @@ namespace Quan_Ly_Nha_Hang.DAL
     {
         private static BillDAL instance;
 
-        public static BillDAL Instance {
-            get { if (instance == null)
-                      instance = new BillDAL();
+        public static BillDAL Instance
+        {
+            get
+            {
+                if (instance == null)
+                    instance = new BillDAL();
                 return BillDAL.instance;
             }
-            private set => instance = value; 
+            private set => instance = value;
         }
-    
+
         private BillDAL() { }
         //Trả về id bill theo id table, lỗi trả về -1
         public int GetUnCheckOutBillByTableId(int id)
@@ -33,7 +36,7 @@ namespace Quan_Ly_Nha_Hang.DAL
         }
         public void InsertBill(int id)
         {
-            DataProvider.Instance.ExecuteNonQuery("exec USP_InsertBill @IdTable  ", new object[]{id});
+            DataProvider.Instance.ExecuteNonQuery("exec USP_InsertBill @IdTable  ", new object[] { id });
         }
         public int GetMaxID()
         {
@@ -49,12 +52,21 @@ namespace Quan_Ly_Nha_Hang.DAL
 
         public DataTable GetListBillByDate(DateTime checkIn, DateTime checkOut)
         {
-           return DataProvider.Instance.ExecuteQuery("exec USP_GetListBillByDate @checkIn , @checkOut", new object[] { checkIn, checkOut });
+            return DataProvider.Instance.ExecuteQuery("exec USP_GetListBillByDate @checkIn , @checkOut", new object[] { checkIn, checkOut });
         }
         public void CheckOut(int id, int totalPrice)
         {
-            string query = "UPDATE dbo.Bill SET DateCheckOut = GETDATE(), status = 1, totalPrice = "+ totalPrice +" Where Id = " + id;
+            string query = "UPDATE dbo.Bill SET DateCheckOut = GETDATE(), status = 1, totalPrice = " + totalPrice + " Where Id = " + id;
             DataProvider.Instance.ExecuteNonQuery(query);
         }
+        //public DataTable GetListBillByDateAndPage(DateTime checkIn, DateTime checkOut, int page)
+        //{
+        //    return DataProvider.Instance.ExecuteQuery("exec USP_GetListBillByDateAndPage @checkIn , @checkOut , @page", new object[] { checkIn, checkOut, page });
+        //}
+        //public int GetNumBillByDate(DateTime checkIn, DateTime checkOut)
+        //{
+        //    return (int)DataProvider.Instance.ExecuteScalar("exec USP_GetNumBillByDate @checkIn , @checkOut", new object[] { checkIn, checkOut });
+        //}
+
     }
 }
