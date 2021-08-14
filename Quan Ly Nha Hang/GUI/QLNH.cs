@@ -115,6 +115,7 @@ namespace Quan_Ly_Nha_Hang.GUI
         private void Btn_Click(object sender, EventArgs e)
         {
             int tableID = ((sender as Button).Tag as Table).ID;
+            txbBan.Text = tableID.ToString();
             lstBill.Tag = (sender as Button).Tag;
             ShowBill(tableID);
         }
